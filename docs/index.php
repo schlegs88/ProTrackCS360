@@ -41,7 +41,9 @@
             <input type="text" name="username" class="form-control" placeholder="Enter Username"><br>
             <input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
             <input type="submit" value="Login" class="btn btn-primary">
+            
         </form>
+        <button onclick="location.href='signup.php'">Sign Up</button>
 
     </section>
 

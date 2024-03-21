@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Doe - Sign Up</title>
+  <title>ProTrack - Sign Up</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <!-- Add any additional meta tags, stylesheets, or scripts here -->
 </head>
@@ -22,19 +22,33 @@
     <h2>Sign Up</h2>
 
     <!-- Sign Up Form -->
-    <form>
+    <form action="signup_process.php" method="POST">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required>
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
       </div>
-      <a href="dashboard.php">
-        <button type="button" class="btn btn-primary">Submit</button>
-      </a>
+      <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+      </div>
+      <div class="mb-3">
+        <label for="user_type" class="form-label">User Type</label>
+        <select class="form-select" id="user_type" name="user_type" required>
+          <option value="" disabled selected>Select User Type</option>
+          <option value="student">Student</option>
+          <option value="instructor">Instructor</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <!-- Or add alternative sign-up options (e.g., social media or third-party login) -->

@@ -23,14 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($result->num_rows > 0) {
     //Login Success
-    $columnData = $result->fetchAll(PDO::FETCH_COLUMN, 2);
-    if ($columnData == 0) {
+    $row = $result->fetch_assoc();
+    $userType = $row['UserType'];
+    if ($userType == 0) {
       header("Location: student.php");
-    } else {
+    }else if($userType == 1){
       header("Location: instructor.php");
+    }else{
+      
     }
     exit();
   } else {
+    header("Location: index.php");
     exit();
   }
 
