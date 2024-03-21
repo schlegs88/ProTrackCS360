@@ -23,7 +23,7 @@
                     <a class="nav-link" href="index.php">Sign Out</a>
                     <a class="nav-link" href="student.php">Dashboard</a>
                     <a class="nav-link" href="calendar.php">Calendar</a>
-                    <a class="nav-link" href="grades.php">Grades</a>
+                    <a class="nav-link" href="studentgrades.php">Grades</a>
                 </div>
             </div>
         </div>
@@ -65,11 +65,16 @@
         // Check if there are rows returned
         if ($result->num_rows > 0) {
             // Output data of each row
+            echo "<table>";
+            echo "<tr><th>Project ID</th><th>Project Name</th></tr>";
             while ($row = $result->fetch_assoc()) {
-                // Access data from the row
-                echo "Project ID: " . $row["Pid"] . ", Project Name: " . $row["ProjectName"] . "<br>";
+                echo "<tr>";
+                echo "<td>" . $row["Pid"] . "</td>";
+                echo "<td>" . $row["ProjectName"] . "</td>";
                 // You can access other columns similarly
+                echo "</tr>";
             }
+            echo "</table>";
         } else {
             echo "0 results";
         }

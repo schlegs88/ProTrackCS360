@@ -7,20 +7,7 @@
     <title>css-2ndLab</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
 
-        .cta-button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 
@@ -40,10 +27,12 @@
         <form action="login.php" method="POST">
             <input type="text" name="email" class="form-control" placeholder="example@email.com"><br>
             <input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
-            <input type="submit" value="Login" class="btn btn-primary">
-            
+            <button type="submit">Login</button><br>
+
         </form>
-        <button onclick="location.href='signup.php'">Sign Up</button>
+        <div class="centered">
+            <button onclick="location.href='signup.php'">Sign Up</button>
+        </div>
 
     </section>
 

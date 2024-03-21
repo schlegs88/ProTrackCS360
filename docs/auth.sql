@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2024 at 10:13 PM
+-- Generation Time: Mar 22, 2024 at 12:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -95,15 +95,21 @@ INSERT INTO `login` (`Username`, `Password`, `UserType`) VALUES
 CREATE TABLE `projects` (
   `Pid` int(8) NOT NULL,
   `ProjectName` varchar(255) NOT NULL,
-  `InstructorID` varchar(16) NOT NULL
+  `StudentID` int(8) NOT NULL,
+  `score` int(11) NOT NULL,
+  `possibleScore` int(11) NOT NULL,
+  `instance` int(16) NOT NULL,
+  `InstructorID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`Pid`, `ProjectName`, `InstructorID`) VALUES
-(1, 'TestProject', '003');
+INSERT INTO `projects` (`Pid`, `ProjectName`, `StudentID`, `score`, `possibleScore`, `instance`, `InstructorID`) VALUES
+(1, 'TestProject', 2, 8, 10, 1, 3),
+(2, 'TestProject2', 2, 3, 5, 2, 3),
+(3, 'TestProject3', 2, 8, 15, 3, 3);
 
 --
 -- Indexes for dumped tables
@@ -126,8 +132,7 @@ ALTER TABLE `assigned`
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
-  ADD PRIMARY KEY (`Pid`),
-  ADD UNIQUE KEY `InstructorID` (`InstructorID`);
+  ADD PRIMARY KEY (`instance`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
