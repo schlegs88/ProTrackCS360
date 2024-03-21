@@ -38,7 +38,7 @@
 
         <!-- Sign In Form -->
         <form action="login.php" method="POST">
-            <input type="text" name="username" class="form-control" placeholder="Enter Username"><br>
+            <input type="text" name="email" class="form-control" placeholder="example@email.com"><br>
             <input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
             <input type="submit" value="Login" class="btn btn-primary">
             

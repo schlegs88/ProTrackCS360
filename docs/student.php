@@ -21,8 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="index.php">Sign Out</a>
-                    <a class="nav-link" href="about.php">About</a>
-                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" href="student.php">Dashboard</a>
                     <a class="nav-link" href="calendar.php">Calendar</a>
                     <a class="nav-link" href="grades.php">Grades</a>
                 </div>
@@ -37,8 +36,49 @@
         <div class="project">
             <h3>Project 1</h3>
             <p>Here you will view some basic info about your project.</p>
-            <a href="#">View Project</a>
         </div>
+        <?php
+        session_start();
+        $host = $_SESSION['host'];
+        $dbusername = $_SESSION['dbusername'];
+        $dbpassword = $_SESSION['dbpassword'];
+        $dbname = $_SESSION['dbname'];
+        $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
+        $studentID = $_SESSION['UserID'];
+        // Student ID variable
+        // Prepare SQL query
+        $sql = "SELECT * FROM assigned NATURAL JOIN projects WHERE studentid = ?";
+
+        // Prepare statement
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            die ("Error in preparing statement: " . $conn->error);
+        }
+        $stmt->bind_param("i", $studentID);
+
+        // Execute statement
+        $stmt->execute();
+
+        // Get result
+        $result = $stmt->get_result();
+
+        // Check if there are rows returned
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                // Access data from the row
+                echo "Project ID: " . $row["Pid"] . ", Project Name: " . $row["ProjectName"] . "<br>";
+                // You can access other columns similarly
+            }
+        } else {
+            echo "0 results";
+        }
+
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
+
+        ?>
 
         <!-- Project 2 -->
         <div class="project">
