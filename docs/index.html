@@ -37,23 +37,10 @@
         <h2>Sign In</h2>
 
         <!-- Sign In Form -->
-        <form class="row g-3 needs-validation" novalidate>
-            <div class="col-md-4 position-relative">
-                <label for="validationTooltip01" class="form-label">Username</label>
-                <input type="text" class="form-control" id="validationTooltip01" value="John" required>
-            </div>
-            <div class="col-md-4 position-relative">
-                <label for="validationTooltip02" class="form-label">Password</label>
-                <input type="password" class="form-control" id="validationTooltip02" value="Doe" required>
-            </div>
-            <div class="col-12">
-                <a href="dashboard.html">
-                    <button type="button">Submit</button>
-                </a>
-                <a href="signup.html">
-                    <button type = "button">Sign Up</button>
-                </a>
-            </div>
+        <form action="login.php" method="POST">
+            <input type="text" name="username" class="form-control" placeholder="Enter Username"><br>
+            <input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
+            <input type="submit" value="Login" class="btn btn-primary">
         </form>
 
     </section>

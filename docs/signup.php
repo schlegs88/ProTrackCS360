@@ -32,7 +32,7 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
-      <a href="dashboard.html">
+      <a href="dashboard.php">
         <button type="button" class="btn btn-primary">Submit</button>
       </a>
     </form>

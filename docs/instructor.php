@@ -13,18 +13,18 @@
 
     <!-- Header Section -->
     <header>
-        <h1>ProTrack</h1>
+        <h1>INSTRUCTOR</h1>
 
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="index.html">Sign Out</a>
-                    <a class="nav-link" href="about.html">About</a>
-                    <a class="nav-link" href="dashboard.html">Dashboard</a>
-                    <a class="nav-link" href="calendar.html">Calendar</a>
-                    <a class="nav-link" href="grades.html">Grades</a>
+                    <a class="nav-link" href="index.php">Sign Out</a>
+                    <a class="nav-link" href="about.php">About</a>
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" href="calendar.php">Calendar</a>
+                    <a class="nav-link" href="grades.php">Grades</a>
                 </div>
             </div>
         </div>
