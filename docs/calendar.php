@@ -19,11 +19,11 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="index.html">Sign Out</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link" href="dashboard.html">Dashboard</a>
-          <a class="nav-link" href="calendar.html">Calendar</a>
-          <a class="nav-link" href="grades.html">Grades</a>
+          <a class="nav-link" href="index.php">Sign Out</a>
+          <a class="nav-link" href="about.php">About</a>
+          <a class="nav-link" href="student.php">Dashboard</a>
+          <a class="nav-link" href="calendar.php">Calendar</a>
+          <a class="nav-link" href="studentgrades.php">Grades</a>
         </div>
       </div>
     </div>

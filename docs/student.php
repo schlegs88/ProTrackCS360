@@ -34,7 +34,7 @@
 
         <!-- Project 1 -->
         <div class="project">
-            <h3>Project 1</h3>
+            <h3>Projects</h3>
             <p>Here you will view some basic info about your project.</p>
         </div>
         <?php
@@ -47,7 +47,7 @@
         $studentID = $_SESSION['UserID'];
         // Student ID variable
         // Prepare SQL query
-        $sql = "SELECT * FROM assigned NATURAL JOIN projects WHERE studentid = ?";
+        $sql = "SELECT * FROM  projects WHERE studentid = ?";
 
         // Prepare statement
         $stmt = $conn->prepare($sql);
@@ -85,14 +85,6 @@
 
         ?>
 
-        <!-- Project 2 -->
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Here you will view some basic info about your project.</p>
-            <a href="#">View Project</a>
-        </div>
-
-        <!-- Add more projects as needed -->
 
     </section>
 

@@ -28,7 +28,6 @@ h1 {
 nav {
   background-color: #007BFF;
   padding: 10px;
-  text-align: center;
 }
 
 nav a {
@@ -67,6 +66,7 @@ label {
   color: #333;
   font-size: 18px;
   margin-bottom: 8px;
+  font-weight: bold; /* Add font weight for emphasis */
 }
 
 input[type="text"],
@@ -102,15 +102,25 @@ select {
 button {
   background-color: #007BFF;
   color: #fff;
-  padding: 14px 20px;
-  border: none;
+  padding: 12px 24px; /* Adjust padding for a more balanced appearance */
+  border: 2px solid #007BFF; /* Add border for a cleaner look */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transition for smoother hover effects */
   font-size: 18px;
+  font-weight: bold; /* Increase font weight for emphasis */
   text-align: center;
-  align-items: center;
-  align-self: center;
+  text-transform: uppercase; /* Convert text to uppercase for a more professional look */
+  outline: none; /* Remove default button outline */
+}
+
+button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3; /* Change border color on hover */
+}
+
+button:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4); /* Add a focus outline */
 }
 
 .centered {
@@ -120,18 +130,22 @@ button {
   align-self: center;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
 
 footer {
   background-color: #007BFF;
   padding: 20px;
   color: #fff;
   text-align: center;
+  width: 100%;
+  height: 50px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* Push the footer to the bottom of its container */
 }
+
 
 footer a {
   color: #fff;
@@ -148,30 +162,40 @@ footer a {
 
 /* Apply styles to all tables */
 table {
-  width: 100%; /* Make the table take up the full width of its container */
-  border-collapse: collapse; /* Collapse table borders */
+  width: 100%;
+  /* Make the table take up the full width of its container */
+  border-collapse: collapse;
+  /* Collapse table borders */
 }
 
 /* Apply styles to table headers */
 th {
-  background-color: #f2f2f2; /* Light gray background color */
-  border: 1px solid #dddddd; /* Gray border */
-  padding: 8px; /* Padding around table headers */
-  text-align: left; /* Left-align text */
+  background-color: #f2f2f2;
+  /* Light gray background color */
+  border: 1px solid #dddddd;
+  /* Gray border */
+  padding: 8px;
+  /* Padding around table headers */
+  text-align: left;
+  /* Left-align text */
 }
 
 /* Apply styles to table cells */
 td {
-  border: 1px solid #dddddd; /* Gray border */
-  padding: 8px; /* Padding around table cells */
+  border: 1px solid #dddddd;
+  /* Gray border */
+  padding: 8px;
+  /* Padding around table cells */
 }
 
 /* Apply alternate row background color for better readability */
 tr:nth-child(even) {
-  background-color: #f9f9f9; /* Lighter background color for even rows */
+  background-color: #f9f9f9;
+  /* Lighter background color for even rows */
 }
 
 /* Hover effect for table rows */
 tr:hover {
-  background-color: #e2e2e2; /* Darker background color on hover */
+  background-color: #e2e2e2;
+  /* Darker background color on hover */
 }

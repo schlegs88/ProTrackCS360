@@ -15,23 +15,25 @@
   <header>
     <h1>ProTrack</h1>
 
-  </header>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="index.php">Sign Out</a>
-          <a class="nav-link" href="about.php">About</a>
-          <a class="nav-link" href="student.php">Dashboard</a>
-          <a class="nav-link" href="calendar.php">Calendar</a>
-          <a class="nav-link" href="studentgrades.php">Grades</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="index.php">Sign Out</a>
+            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="student.php">Dashboard</a>
+            <a class="nav-link" href="calendar.php">Calendar</a>
+            <a class="nav-link" href="studentgrades.php">Grades</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+  </header>
+
   <!-- Display grades -->
-  <section>
+  <section class="clearfix">
     <?php
     session_start();
     //Database connection parameters
@@ -60,7 +62,7 @@
     //Check if there are rows returned
     if ($result->num_rows > 0) {
       // Print table headers
-      echo "<table border='1'>";
+      echo "<table>";
       echo "<tr><th>Project Name</th><th>Score</th><th>Possible Score</th></tr>";
 
       // Fetch and output each row
@@ -85,8 +87,9 @@
 
   </section><br>
 </body>
+
 <!-- Footer Section -->
-<footer>
+<footer class="clearfix">
   <nav>
     <a href="#terms">Terms and Conditions</a>
     <a href="#priv">Privacy Policy</a>
@@ -94,6 +97,7 @@
   </nav>
   <!-- Add any additional footer content here -->
 </footer>
+
 
 
 
