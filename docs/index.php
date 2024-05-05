@@ -37,6 +37,9 @@
         echo '<div class="alert alert-danger" style="color: red; text-align: center; font-size: 24px;">' . $_SESSION['error'] . '</div>';
         unset($_SESSION['error']);  // Clear the message after displaying it
     }
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+    $_SESSION['message'] = '';
     ?>
     <!--call to action-->
     <section>

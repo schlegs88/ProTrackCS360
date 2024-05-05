@@ -47,6 +47,7 @@
 
   <section class="clearfix">
     <form action="savegrades.php" method="POST">
+      <h2 style="padding: 0px">Current Projects</h2>
       <table>
         <thead>
           <tr>
@@ -79,12 +80,12 @@
               echo "<tr>";
               echo "<td>" . $row["UserName"] . "</td>";
               echo "<td>" . $row["ProjectName"] . "</td>";
-              echo "<td><input type='text' name='score[{$row['Pid']}][{$row['StudentID']}]' value='" . $row["score"] . "'>  /  ". $row["possibleScore"] ." </td>";
-             if(strtotime($row["DueDate"]) < strtotime(date("Y-m-d"))){
-              echo "<td style=\"color: red\">" . date("F j, Y", strtotime($row["DueDate"])). "</td>";
-             }else{
-              echo "<td>" . date("F j, Y", strtotime($row["DueDate"])). "</td>";
-             }
+              echo "<td style='width: 200px; padding: 5px; box-sizing: border-box; text-align: center;'><input style='width: 70px !important; height:15px; box-sizing: border-box;' type='text' name='score[{$row['Pid']}][{$row['StudentID']}]' value='" . $row["score"] . "'> / <span style='margin-left: 5px;'>" . $row["possibleScore"] . "</span></td>";
+              if (strtotime($row["DueDate"]) < strtotime(date("Y-m-d"))) {
+                echo "<td style=\"color: red\">" . date("F j, Y", strtotime($row["DueDate"])) . "</td>";
+              } else {
+                echo "<td>" . date("F j, Y", strtotime($row["DueDate"])) . "</td>";
+              }
               echo "<input type='hidden' name='Pid[{$row['Pid']}][{$row['StudentID']}]' value='" . $row["Pid"] . "'>";
               echo "<input type='hidden' name='StudentID[{$row['Pid']}][{$row['StudentID']}]' value='" . $row["StudentID"] . "'>";
               echo "</tr>";
@@ -99,7 +100,7 @@
     </form>
 
     <form action="newassign.php" method="POST">
-      <h2>Assign a New Project</h2>
+      <h2  style="padding: 0px">Assign a New Project</h2>
       <table>
         <tr>
           <td>Select Student:</td>

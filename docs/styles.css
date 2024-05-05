@@ -118,7 +118,7 @@ table button {
   cursor: pointer;
 }
 
-table button:hover {
+table button:hover, .button:hover{
   background-color: #0056b3;
   /* Darker blue on hover for buttons */
 }
@@ -127,6 +127,7 @@ input,
 input[type="date"],
 input[type="email"],
 button,
+.button-stylesf,
 select,
 .inputs-custom {
   width: 100% !important;
@@ -145,12 +146,6 @@ button:hover {
   border-color: #007BFF;
 }
 
-input[type="submit"],
-button {
-  background-color: #007BFF;
-  color: white;
-  cursor: pointer;
-}
 
 input[type="submit"]:hover,
 button:hover {

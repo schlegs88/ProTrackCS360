@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt = $conn->prepare("INSERT INTO accounts (UserName, email, Pass, UserType) VALUES (?, ?, ?, ?)")) {
         $stmt->bind_param("sssi", $name, $email, $hashed_password, $user_type);
         if ($stmt->execute()) {
-            $_SESSION['message'] = "Registration successful! Please login.";
+            $_SESSION['success'] = "Registration successful! Please login.";
             $stmt->close();
             $conn->close();
-            header("Location: index.php");
+            header("Location: signup.php");
             exit();
         } else {
             $_SESSION['error'] = "User registration failed: " . $stmt->error;

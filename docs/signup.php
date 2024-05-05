@@ -77,9 +77,11 @@
       </select>
       <button type="submit" class="btn btn-primary">Submit</button>
 
-      <td><button href="index.php">Sign In</a>
-      </td>
+
     </form>
+    <td>
+      <button onclick="window.location.href='index.php';">Sign In</button>
+    </td>
 
 
   </section>
