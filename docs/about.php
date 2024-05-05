@@ -23,9 +23,9 @@
         <div class="navbar-nav">
           <a class="nav-link" href="index.php">Sign Out</a>
           <a class="nav-link" href="about.php">About</a>
-          <a class="nav-link" href="dashboard.php">Dashboard</a>
-          <a class="nav-link" href="calendar.php">Calendar</a>
-          <a class="nav-link" href="grades.php">Grades</a>
+          <a class="nav-link" href="instructor.php">Dashboard</a>
+          <a class="nav-link" href="instructorcal.php">Calendar</a>
+          <a class="nav-link" href="instructorgrades.php">Grades</a>
         </div>
       </div>
     </div>

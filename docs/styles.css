@@ -1,12 +1,16 @@
-/* Reset default margin and padding */
-* {
+*
+/*reset default margins and padding*/
+/* 
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+*/
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #f8f8f8;
   color: #333;
   line-height: 1.6;
@@ -20,7 +24,6 @@ header {
 }
 
 h1 {
-  color: #fff;
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -30,7 +33,7 @@ nav {
   padding: 10px;
 }
 
-nav a {
+.navbar-nav a {
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
@@ -39,7 +42,7 @@ nav a {
   transition: background-color 0.3s ease;
 }
 
-nav a:hover {
+.navbar-nav a:hover {
   background-color: #0056b3;
 }
 
@@ -51,83 +54,107 @@ section {
   padding: 40px;
 }
 
-form {
+.project {
+  margin-bottom: 20px;
+}
+
+.project h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.project p {
+  margin-bottom: 10px;
+}
+
+form,
+.form-control,
+.form-label,
+.form-select {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.form-group {
-  margin-bottom: 20px;
+table {
   width: 100%;
+  border-collapse: collapse;
+  /* Ensures borders between cells are merged */
+  margin-top: 20px;
+  /* Adds space above the table */
+  background-color: #fff;
+  /* Matches the section background color */
 }
 
-label {
-  color: #333;
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: bold; /* Add font weight for emphasis */
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-  width: 100%;
+th,
+td {
   padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-top: 6px;
-  transition: border-color 0.3s ease;
+  /* More padding for a better visual appeal */
+  border: 1px solid #ddd;
+  /* Light grey border for a subtle look */
+  text-align: left;
+  /* Aligns text to the left, modify as needed */
+  color: #333;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-select:focus {
+th {
+  background-color: #007BFF;
+  /* Header matches navbar background */
+  color: #fff;
+  /* Text color for headers is white */
+  font-size: 16px;
+  /* Matches form element font size for consistency */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  /* Zebra striping for rows */
+}
+
+
+table button {
+  background-color: #007BFF;
+  /* Matches button colors elsewhere */
+  color: #fff;
+  cursor: pointer;
+}
+
+table button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover for buttons */
+}
+
+input,
+input[type="date"],
+input[type="email"],
+button,
+select,
+.inputs-custom {
+  width: 100% !important;
+  padding: 12px !important;
+  border: 2px solid #ddd !important;
+  border-radius: 5px !important;
+  box-sizing: border-box !important;
+  font-size: 16px !important;
+  margin-top: 6px !important;
+  transition: border-color 0.3s ease !important;
+}
+
+input:focus,
+select:focus,
+button:hover {
   border-color: #007BFF;
 }
 
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/><path fill="none" d="M0 0h24v24H0z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
-
+input[type="submit"],
 button {
   background-color: #007BFF;
-  color: #fff;
-  padding: 12px 24px; /* Adjust padding for a more balanced appearance */
-  border: 2px solid #007BFF; /* Add border for a cleaner look */
-  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transition for smoother hover effects */
-  font-size: 18px;
-  font-weight: bold; /* Increase font weight for emphasis */
-  text-align: center;
-  text-transform: uppercase; /* Convert text to uppercase for a more professional look */
-  outline: none; /* Remove default button outline */
 }
 
+input[type="submit"]:hover,
 button:hover {
   background-color: #0056b3;
-  border-color: #0056b3; /* Change border color on hover */
-}
-
-button:focus {
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4); /* Add a focus outline */
-}
-
-.centered {
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
 }
 
 
@@ -136,16 +163,7 @@ footer {
   padding: 20px;
   color: #fff;
   text-align: center;
-  width: 100%;
-  height: 50px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto; /* Push the footer to the bottom of its container */
 }
-
 
 footer a {
   color: #fff;
@@ -160,42 +178,54 @@ footer a {
   }
 }
 
-/* Apply styles to all tables */
-table {
+#deliverablesModal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
-  /* Make the table take up the full width of its container */
-  border-collapse: collapse;
-  /* Collapse table borders */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  /* High z-index to be on top of other content */
 }
 
-/* Apply styles to table headers */
-th {
-  background-color: #f2f2f2;
-  /* Light gray background color */
-  border: 1px solid #dddddd;
-  /* Gray border */
-  padding: 8px;
-  /* Padding around table headers */
-  text-align: left;
-  /* Left-align text */
+#deliverablesModal>div {
+  background: white;
+  margin: 100px auto;
+  padding: 20px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Apply styles to table cells */
-td {
-  border: 1px solid #dddddd;
-  /* Gray border */
-  padding: 8px;
-  /* Padding around table cells */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
-/* Apply alternate row background color for better readability */
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-  /* Lighter background color for even rows */
-}
-
-/* Hover effect for table rows */
-tr:hover {
-  background-color: #e2e2e2;
-  /* Darker background color on hover */
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
