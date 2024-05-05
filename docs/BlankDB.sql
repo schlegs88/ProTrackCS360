@@ -3,15 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2024 at 12:26 AM
+-- Generation Time: May 05, 2024 at 07:42 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE auth;
-USE auth;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,22 +28,12 @@ USE auth;
 --
 
 CREATE TABLE `accounts` (
-  `name` varchar(255) NOT NULL,
+  `UserName` varchar(255) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL,
+  `Pass` varchar(64) NOT NULL,
   `UserType` int(1) NOT NULL,
-  `id` int(16) NOT NULL,
-  `date` int(11) NOT NULL
+  `id` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`name`, `email`, `password`, `UserType`, `id`, `date`) VALUES
-('student', 'study@email.net', 'password', 0, 2, 321),
-('Teacher', 'teach@email.net', 'password', 1, 3, 321),
-('joe', 'test@email.net', 'password', 0, 1, 321);
 
 -- --------------------------------------------------------
 
@@ -56,15 +45,24 @@ CREATE TABLE `assigned` (
   `Pid` int(11) NOT NULL,
   `StudentID` int(11) NOT NULL,
   `InstructorID` int(11) NOT NULL,
-  `number` int(11) NOT NULL
+  `number` int(11) NOT NULL,
+  `score` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `assigned`
+-- Table structure for table `deliverables`
 --
 
-INSERT INTO `assigned` (`Pid`, `StudentID`, `InstructorID`, `number`) VALUES
-(1, 2, 3, 999);
+CREATE TABLE `deliverables` (
+  `deliverableid` int(11) NOT NULL,
+  `task` int(11) NOT NULL,
+  `duedate` date NOT NULL,
+  `phase` int(11) NOT NULL,
+  `delivName` text NOT NULL,
+  `Pid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -78,15 +76,6 @@ CREATE TABLE `login` (
   `UserType` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`Username`, `Password`, `UserType`) VALUES
-('testuser', 'password', 0),
-('testuser', 'password', 0),
-('testInst', 'password', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -94,23 +83,13 @@ INSERT INTO `login` (`Username`, `Password`, `UserType`) VALUES
 --
 
 CREATE TABLE `projects` (
-  `Pid` int(8) NOT NULL,
+  `Pid` int(11) NOT NULL,
   `ProjectName` varchar(255) NOT NULL,
-  `StudentID` int(8) NOT NULL,
-  `score` int(11) NOT NULL,
   `possibleScore` int(11) NOT NULL,
-  `instance` int(16) NOT NULL,
-  `InstructorID` int(11) NOT NULL
+  `InstructorID` int(11) NOT NULL,
+  `ProjectDescription` text NOT NULL,
+  `DueDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`Pid`, `ProjectName`, `StudentID`, `score`, `possibleScore`, `instance`, `InstructorID`) VALUES
-(1, 'TestProject', 2, 8, 10, 1, 3),
-(2, 'TestProject2', 2, 3, 5, 2, 3),
-(3, 'TestProject3', 2, 8, 15, 3, 3);
 
 --
 -- Indexes for dumped tables
@@ -130,10 +109,44 @@ ALTER TABLE `assigned`
   ADD PRIMARY KEY (`number`);
 
 --
+-- Indexes for table `deliverables`
+--
+ALTER TABLE `deliverables`
+  ADD PRIMARY KEY (`deliverableid`);
+
+--
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
-  ADD PRIMARY KEY (`instance`);
+  ADD PRIMARY KEY (`Pid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `assigned`
+--
+ALTER TABLE `assigned`
+  MODIFY `number` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `deliverables`
+--
+ALTER TABLE `deliverables`
+  MODIFY `deliverableid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `Pid` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
